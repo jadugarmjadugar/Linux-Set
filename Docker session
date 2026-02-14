@@ -1,0 +1,52 @@
+#Inside Container 
+
+    1  apt install iputils-ping
+    2  apt-get update
+    3  apt install iputils-ping
+    4  apt install net-tools
+    5  ifconfig
+    6  ping 172.17.0.2
+    7  history
+
+#All History
+
+docker network ls
+   28  clear
+   29  docker container -it ubuntu bash
+   30  docker container run -it ubuntu bash
+   31  docker ps
+   32  docker run -it ubuntu bash
+   33  clear
+   34  docker network ls
+   35  docker network inspect 369b410a6959
+   36  docker ps
+   37  docker container -it ubtunu bash
+   38  docker container run -it ubtunu bash
+   39  docker container run -it ubuntu bash
+   40  docker ps
+   41  docker container inspect 1f5d6986952a
+   42  clear
+   43  docker container run -d --network host nginx
+   44  docker ps
+   45  docker container run -d nginx
+   46  docker container run -d -p 81:80 nginx
+   47  docker ps
+   48  docker inspect cc3b226970c6
+   49  docker ps
+   50  docker inspect 01f2fc6db824
+   51  docker ps
+   52  docker container run -d -p 80:80 nginx
+   53  docker container run -d -p 81:80 nginx
+   54  docker network create -d host new3
+   55  history
+
+
+
+#Command to create Network
+
+  1. docker network ls
+  2. docker container run -it ubuntu bash (check internal IP)
+  3. Trying to ping 1 container to another 
+  1. docker network create -d bridge --subnet 192.0.0.0/16 new
+  2. docker container run --network new -it ubuntu bash
+  3. docker container run --network host -it nginx
