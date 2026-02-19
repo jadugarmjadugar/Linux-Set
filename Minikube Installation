@@ -1,0 +1,21 @@
+1. Install Docker
+2. Install Kubectl
+3. Install Minikube
+
+##Sample Process: (Based on version keep checking the updated commands)
+
+sudo yum install docker -y
+sudo systemctl start docker
+sudo systemctl enable docker
+sudo chmod 777 /var/run/docker.sock
+
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256"
+echo "$(cat kubectl.sha256)  kubectl" | sha256sum --check
+sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+kubectl version --client
+
+
+curl -LO https://github.com/kubernetes/minikube/releases/latest/download/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube && rm minikube-linux-amd64
+minikube start
