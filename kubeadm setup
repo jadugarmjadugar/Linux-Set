@@ -28,3 +28,10 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 ###########Worker Node Setup#############
 sudo kubeadm join 172.31.24.146:6443 --token ho898e.clvp9u1ch08mn1iq --discovery-token-ca-cert-hash sha256:eec08328f9d250a40f5c4c399d98b252090d4d3f9cd9946fbc977d7faf9edac7
+
+
+#########Networking SetUp############
+https://docs.tigera.io/calico/latest/getting-started/kubernetes/self-managed-onprem/onpremises
+
+curl https://raw.githubusercontent.com/projectcalico/calico/v3.31.3/manifests/calico.yaml -O
+kubectl apply -f calico.yaml
