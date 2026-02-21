@@ -1,0 +1,47 @@
+##########general pattern#############
+kubectl <action> <resource> <name> [flags]
+
+
+#For getting join commad
+sudo kubeadm token create --print-join-command
+
+#cluster info
+kubectl cluster-info
+
+#list nodes/pods/<<resource>>
+kubectl get <<resource>>
+
+#and in detail
+kubectl get <<resource>> -o wide
+
+#create using file
+kubectl apply -f <file.yaml>
+
+#commands based creation
+
+1. Deployment
+kubectl create deployment nginx --image=nginx
+kubectl expose deployment <name> --type=NodePort --port=80
+
+#detailed information of resources
+kubectl describe <resource-type> <resource-name>
+
+#logs
+kubectl logs <pod-name>
+
+#delete resources
+kubectl delete <resource-type> <resource-name>
+
+#scaling
+kubectl scale deployment <name> --replicas=<number>
+kubectl scale deployment nginx --replicas=3
+
+#rollout and rollback
+
+kubectl rollout status deployment <name>
+kubectl rollout undo deployment <name>
+kubectl rollout history deployment <name>
+
+#get output in yaml
+kubectl get pod <name> -o yaml
+
