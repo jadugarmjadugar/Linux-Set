@@ -1,0 +1,9 @@
+---
+- name:  "test"
+  hosts: localhost
+
+  tasks:
+  - name:  "test connectivity"
+    debug: msg="Hello World"
+  - name:  "new"
+    ping:
