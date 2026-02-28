@@ -1,3 +1,49 @@
+############Structure#############
+
+.
+├── inventory
+│   └── server.ini
+├── playbooks
+│   ├── p3.yml
+│   ├── p4.yml
+│   ├── playbook-2.yml
+│   ├── playbook.yml
+│   └── remote.yml
+└── roles
+
+
+###############Inventory##############
+
+[root@ip-172-31-1-239 inventory]# cat server.ini 
+[all]
+server1 ansible_host=172.31.7.79
+server2 ansible_host=172.31.10.17
+
+[server-1]
+server1
+
+[server-2]
+server2
+
+[all:vars]
+ansible_user=ec2-user
+ansible_ssh_private_key_file=/home/ec2-user/abc.pem
+
+
+############Playbook#########################
+
+[root@ip-172-31-1-239 playbooks]# cat remote.yml 
+---
+- name: "test"
+  hosts: all
+  become: yes
+  tasks:
+    - name: Install nginx
+      ping:
+
+
+
+
 [web]
 web1 ansible_host=172.31.10.17
 web2 ansible_host=172.31.10.18
