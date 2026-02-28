@@ -1,0 +1,19 @@
+#########Adhoc############
+
+ansible <host-pattern> -i <inventory> -m <module> -a "<arguments>"
+
+1. ansible all -i inventory.ini -m ping
+
+2. ansible web -i inventory.ini -m command -a "uptime"
+
+3. With root priviledge
+ansible web -i inventory.ini -m yum -a "name=nginx state=present" --become
+
+4. Copy File
+ansible web -i inventory.ini -m copy -a "src=index.html dest=/var/www/html/index.html" -b
+
+5. Restart Service
+ansible web -i inventory.ini -m service -a "name=nginx state=restarted" -b
+
+6. Check OS
+ansible all -i inventory.ini -m setup
