@@ -100,3 +100,7 @@ sudo vi /etc/yum.repos.d/grafana.repo
 sudo yum install grafana -y
 sudo systemctl start grafana-server
 sudo systemctl enable grafana-server
+
+
+Import Prometheus as Data Source
+Dashboard Import 1860
