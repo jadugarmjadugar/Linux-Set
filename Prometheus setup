@@ -26,6 +26,21 @@ sudo chown -R prometheus:prometheus /var/lib/prometheus
 ### enable and start
 
 sudo vi /etc/systemd/system/prometheus.service
+
+                          [Unit]
+                          Description=Prometheus
+                          After=network.target
+                          
+                          [Service]
+                          User=prometheus
+                          ExecStart=/usr/local/bin/prometheus \
+                           --config.file=/etc/prometheus/prometheus.yml \
+                           --storage.tsdb.path=/var/lib/prometheus
+                          
+                          [Install]
+                          WantedBy=multi-user.target
+                          
+
 sudo systemctl daemon-reload
 sudo systemctl start prometheus
 sudo systemctl enable prometheus
