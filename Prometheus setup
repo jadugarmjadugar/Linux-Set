@@ -80,3 +80,23 @@ sudo systemctl enable node_exporter
 
 
 http://<<INSTANCE IP>>:9100/metrics
+
+
+################################################################################################################################################
+
+
+##########################################Grafana##################################################################
+
+http://SERVER-IP:3000  (admin/admin)
+
+sudo vi /etc/yum.repos.d/grafana.repo
+
+    [grafana]
+    name=grafana
+    baseurl=https://packages.grafana.com/oss/rpm
+    enabled=1
+    gpgcheck=0
+
+sudo yum install grafana -y
+sudo systemctl start grafana-server
+sudo systemctl enable grafana-server
