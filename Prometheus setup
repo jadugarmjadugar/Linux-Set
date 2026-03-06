@@ -1,0 +1,34 @@
+## Adding user##
+
+1. sudo useradd --no-create-home --shell /bin/false prometheus
+
+#### Download prometheus - https://prometheus.io/download/
+
+2. wget https://github.com/prometheus/prometheus/releases/download/v3.5.1/prometheus-3.5.1.linux-amd64.tar.gz
+
+####Unzip 
+
+3. tar -xvf prometheus-*.tar.gz
+
+####Get in the folder
+
+4. cd prometheus-3.5.1.linux-amd64/
+
+## commands to move and give permissions
+
+sudo mv prometheus promtool /usr/local/bin/
+sudo mkdir /etc/prometheus
+sudo mkdir /var/lib/prometheus
+sudo mv prometheus.yml /etc/prometheus/
+sudo chown -R prometheus:prometheus /etc/prometheus
+sudo chown -R prometheus:prometheus /var/lib/prometheus
+
+### enable and start
+
+sudo vi /etc/systemd/system/prometheus.service
+sudo systemctl daemon-reload
+sudo systemctl start prometheus
+sudo systemctl enable prometheus
+
+
+access on http://<<public ip>>:9090/query
