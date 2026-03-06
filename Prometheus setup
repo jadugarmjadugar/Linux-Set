@@ -1,3 +1,6 @@
+########################PROMETHEUS#######################################
+
+
 ## Adding user##
 
 1. sudo useradd --no-create-home --shell /bin/false prometheus
@@ -47,3 +50,33 @@ sudo systemctl enable prometheus
 
 
 access on http://<<public ip>>:9090/query
+
+
+################################################################################################################################################
+
+
+
+##########################################NODE EXPORTER ON INSTANCES##################################################################
+
+sudo useradd --no-create-home --shell /bin/false node_exporter
+wget https://github.com/prometheus/node_exporter/releases/download/v1.10.2/node_exporter-1.10.2.linux-amd64.tar.gz (https://prometheus.io/download/)
+tar -xvf node_exporter-*.tar.gz
+cd node_exporter-1.10.2.linux-amd64/
+sudo mv node_exporter /usr/local/bin/
+sudo vi /etc/systemd/system/node_exporter.service
+                                [Unit]
+                                Description=Node Exporter
+                                After=network.target
+                                
+                                [Service]
+                                User=node_exporter
+                                ExecStart=/usr/local/bin/node_exporter
+                                
+                                [Install]
+                                WantedBy=default.target
+sudo systemctl daemon-reload
+sudo systemctl start node_exporter
+sudo systemctl enable node_exporter
+
+
+http://<<INSTANCE IP>>:9100/metrics
