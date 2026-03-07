@@ -90,6 +90,9 @@ http://<<INSTANCE IP>>:9100/metrics
 
 ################################################################################################################################################
 
+##########################################Adding Targets##################################################################
+
+
 sudo vi /etc/prometheus/prometheus.yml
 
   - job_name: "ec2-nodes"
@@ -99,17 +102,22 @@ sudo vi /etc/prometheus/prometheus.yml
         - "10.0.1.11:9100"
         - "10.0.1.12:9100"
 
+sudo systemctl restart prometheus
+
+################################################################################################################################################
+
+
 ##########################################Grafana##################################################################
 
 http://SERVER-IP:3000  (admin/admin)
 
 sudo vi /etc/yum.repos.d/grafana.repo
 
-    [grafana]
-    name=grafana
-    baseurl=https://packages.grafana.com/oss/rpm
-    enabled=1
-    gpgcheck=0
+[grafana]
+name=grafana
+baseurl=https://packages.grafana.com/oss/rpm
+enabled=1
+gpgcheck=0
 
 sudo yum install grafana -y
 sudo systemctl start grafana-server
