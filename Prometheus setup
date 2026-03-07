@@ -59,7 +59,7 @@ access on http://<<public ip>>:9090/query
 ##########################################NODE EXPORTER ON INSTANCES##################################################################
 
 sudo useradd --no-create-home --shell /bin/false node_exporter
-wget https://github.com/prometheus/node_exporter/releases/download/v1.10.2/node_exporter-1.10.2.linux-amd64.tar.gz (https://prometheus.io/download/)
+wget https://github.com/prometheus/node_exporter/releases/download/v1.10.2/node_exporter-1.10.2.linux-amd64.tar.gz #(https://prometheus.io/download/)
 tar -xvf node_exporter-*.tar.gz
 cd node_exporter-1.10.2.linux-amd64/
 sudo mv node_exporter /usr/local/bin/
