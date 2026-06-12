@@ -1,0 +1,13 @@
+---
+- name: variable example
+  hosts: all
+  become: yes
+
+  vars:
+    package_name: nginx
+
+  tasks:
+    - name: Install Nginx
+      ansible.builtin.package:
+        name: "{{ package_name }}"
+        state: present
