@@ -1,0 +1,11 @@
+---
+- name: Conditional test
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Install stress
+      ansible.builtin.package:
+        name: unzip
+        state: present
+      when: ansiblei_os_family == "Ubuntu"
