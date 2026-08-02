@@ -1,0 +1,117 @@
+#!/bin/bash
+
+echo "hello"
+echo "world"
+
+-----------------------------------
+
+#!/bin/bash
+
+a="Karan"
+b=5
+
+echo "$a age is $b"
+
+-----------------------------------
+
+#!/bin/bash
+
+echo "This is AWS"
+#This is commemt
+
+-----------------------------------
+
+#!/bin/bash
+
+echo "enter your name"
+
+read name
+
+echo "Your name is $name"
+
+----------------------------------
+
+#!/bin/bash
+
+echo "$(( 5 + 4 ))"
+
+----------------------------------
+
+#!/bin/bash
+
+echo "$(( 5 + 4 ))"
+[ec2-user@karan ~]$ cat s7.sh 
+#!/bin/bash
+
+expr 4 + 5
+
+-------------------------------
+
+#!/bin/bash
+
+echo "My name is $1"
+
+-------------------------------
+
+#!/bin/bash
+
+a=4
+b=1
+
+result=$expr $a+$b
+
+echo "$result"
+
+-------------------------------
+
+#!/bin/bash
+
+age=17
+
+if [ $age -ge 18 ]
+then
+        echo "allowed"
+fi
+
+---------------------------------
+
+#!/bin/bash
+
+age=17
+
+if [ $age -ge 18 ]
+then
+        echo "allowed"
+else
+        echo "smaller"
+fi
+
+--------------------------------
+
+#!/bin/bash
+
+age=17
+
+if [ $age -gt 18 ]
+then
+        echo "allowed"
+elif [ $age -eq 18 ]
+then
+        echo "equals"
+else
+        echo "smaller"
+fi
+
+-------------------------------
+
+#!/bin/bash
+
+a=5
+b=6
+
+if (( a == 6 ))
+then
+        echo "both are equal"
+else
+        echo "not equal"
+fi
