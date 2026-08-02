@@ -115,3 +115,14 @@ then
 else
         echo "not equal"
 fi
+
+-------------------------------
+
+#/bin/bash
+
+name="karan"
+
+if [[ $name == "karan" ]]
+then
+        echo "matched"
+fi
