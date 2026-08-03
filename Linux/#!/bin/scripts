@@ -126,3 +126,18 @@ if [[ $name == "karan" ]]
 then
         echo "matched"
 fi
+
+
+--------------------------------
+
+#!/bin/bash
+
+age=7
+status="active"
+
+if [[ $age -ge 18 && $status == "active" ]]
+then
+        echo "allowed"
+fi
+
+--------------------------------
