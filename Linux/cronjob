@@ -1,0 +1,15 @@
+sudo yum install -y cronie
+sudo systemctl start crond
+sudo systemctl enable crond
+sudo systemctl status crond
+crontab -l
+
+vi helloworld.sh
+
+          #!/bin/bash
+          echo $(date) >> /home/ec2-user/output.log
+
+chmod +x helloworld.sh 
+crontab -e
+crontab -l
+
